@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="393.0" prefWidth="652.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proiect_iss.controllers.LibrarianController">
+    <children>
+      <VBox prefHeight="393.0" prefWidth="652.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+              <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="609.0">
+                  <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                              <Button mnemonicParsing="false" onAction="#handleAdd" prefHeight="25.0" prefWidth="90.0" text="Add book" />
+                              <Button mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="90.0" text="Delete book" />
+                              <Button mnemonicParsing="false" onAction="#handleReturn" prefHeight="25.0" prefWidth="90.0" text="Return book" />
+                     </children>
+                  </VBox>
+                      <HBox prefHeight="249.0" prefWidth="1.0" />
+                      <TableView layoutX="105.0" layoutY="23.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="486.0">
+                          <columns>
+                              <TableColumn fx:id="columnBookId" prefWidth="79.0" text="book id" />
+                              <TableColumn fx:id="columnTitle" prefWidth="250.0" text="title" />
+                              <TableColumn fx:id="columnStatus" prefWidth="155.0" text="status" />
+                          </columns>
+                      </TableView>
+                  </children>
+              </HBox>
+              <Button mnemonicParsing="false" onAction="#handleLogOut" prefHeight="25.0" prefWidth="588.0" text="Log Out" />
+         </children>
+      </VBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</AnchorPane>
