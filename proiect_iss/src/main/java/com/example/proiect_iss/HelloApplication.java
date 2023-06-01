@@ -1,6 +1,8 @@
 package com.example.proiect_iss;
 
 import com.example.proiect_iss.controllers.LoginController;
+import com.example.proiect_iss.domain.Book;
+import com.example.proiect_iss.repository.BookRepo;
 import com.example.proiect_iss.repository.UserRepo;
 import com.example.proiect_iss.service.Service;
 import javafx.application.Application;
@@ -23,9 +25,14 @@ public class HelloApplication extends Application {
 //            System.out.println("Cannot find bd.config "+e);
 //        }
         UserRepo repoUser=new UserRepo();
-        Service service=new Service(repoUser);
-//        var a=service.login("user1","pass1");
-
+        BookRepo repoBook=new BookRepo();
+        Service service=new Service(repoUser,repoBook);
+//        var a1=service.login("user1","pass1");
+//        var a=service.findAllBooks();
+//        Book book=new Book(100,"ion","titlu");
+//        book.setStatus("rent");
+//        service.saveBook(book);
+        var a=service.findAllBooks();
         FXMLLoader fxmlLoaderClient = new FXMLLoader(HelloApplication.class.getResource("loginView.fxml"));
         AnchorPane clientLayout = fxmlLoaderClient.load();
         Stage stageClient = new Stage();

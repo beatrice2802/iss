@@ -20,12 +20,12 @@ public class User{
     }
 
     public User(String cnp, String name, String address, String phone, String username, String password, Boolean isLibrarian) {
-        this.username = username;
-        this.password = password;
         this.cnp = cnp;
         this.name = name;
         this.address = address;
         this.phoneNumber = phone;
+        this.username = username;
+        this.password = password;
         this.isLibrarian = isLibrarian;
     }
 

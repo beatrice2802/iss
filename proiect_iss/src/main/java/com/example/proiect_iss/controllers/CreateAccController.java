@@ -1,6 +1,7 @@
 package com.example.proiect_iss.controllers;
 
 import com.example.proiect_iss.HelloApplication;
+import com.example.proiect_iss.domain.Subscriber;
 import com.example.proiect_iss.domain.User;
 import com.example.proiect_iss.service.Service;
 import javafx.event.ActionEvent;
@@ -21,7 +22,11 @@ public class CreateAccController {
     public TextField textTelefon;
     public TextField textUsername;
     private Service srv;
-    public void initialize(Service srv){this.srv=srv;}
+
+    public void initialize(Service srv) {
+        this.srv = srv;
+    }
+
     public void onCreate(ActionEvent actionEvent) throws IOException {
         //doar clientii fac cont, bibliotecarul are deja
         String cnp = textCNP.getText();
@@ -31,28 +36,32 @@ public class CreateAccController {
         String adresa = textAdresa.getText();
         String telefon = textTelefon.getText();
         String username = textUsername.getText();
-        if(cnp.equals("") || username.equals("") || password.equals("")|| password2.equals("") || nume.equals("")|| adresa.equals("") || telefon.equals("")){
+        if (cnp.equals("") || username.equals("") || password.equals("") || password2.equals("") || nume.equals("") || adresa.equals("") || telefon.equals("")) {
             MessageAlert.showErrorMessage(null, "incorrect info!");
             return;
         }
-        if(!password.equals(password2)){
+        if (!password.equals(password2)) {
             MessageAlert.showErrorMessage(null, "passwords not matching!");
             return;
         }
-        var u=this.srv.createAcc(cnp,nume,adresa,telefon,username,password,Boolean.FALSE);
-        if(u==null){
+        var u = this.srv.createAcc(cnp, nume, adresa, telefon, username, password, Boolean.FALSE);
+//        Subscriber subscriber = new Subscriber(username, password, cnp, nume, adresa, telefon);
+//        var u1 = new User(subscriber);
+//        var u=this.srv.createAcc(adresa,telefon,username,cnp,nume,nume,Boolean.FALSE);
+        if (u == null) {
             MessageAlert.showErrorMessage(null, "you already have an account!");
             return;
         }
 
 
-        ((Stage)(((Button)actionEvent.getSource()).getScene().getWindow())).close();
+        ((Stage) (((Button) actionEvent.getSource()).getScene().getWindow())).close();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("userView.fxml"));
-        Scene mainLayout=new Scene(fxmlLoader.load());
+        Scene mainLayout = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
-        stage.setTitle("User view");
+        stage.setTitle("CLIENT");
         stage.setScene(mainLayout);
-        UserController userController=fxmlLoader.getController();
+        UserController userController = fxmlLoader.getController();
+        userController.initialize(this.srv);
         stage.show();
 //        //daca e bibliotecar
 //
@@ -67,7 +76,7 @@ public class CreateAccController {
     }
 
     public void onBack(ActionEvent actionEvent) throws IOException {
-        ((Stage)(((Button)actionEvent.getSource()).getScene().getWindow())).close();
+        ((Stage) (((Button) actionEvent.getSource()).getScene().getWindow())).close();
 
     }
 }

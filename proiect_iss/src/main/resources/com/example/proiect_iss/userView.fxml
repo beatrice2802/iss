@@ -18,10 +18,11 @@
                <Button mnemonicParsing="false" onAction="#handleRent" prefHeight="25.0" prefWidth="90.0" text="Rent book" />
             </children>
          </VBox>
-         <TableView maxWidth="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="501.0">
+         <TableView fx:id="tableBooks" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="501.0">
            <columns>
+               <TableColumn fx:id="columnId" prefWidth="100.0" text="id" />
              <TableColumn fx:id="columnTitle" prefWidth="250.0" text="title" />
-               <TableColumn fx:id="columnAuthor" prefWidth="250.0" text="author" />
+               <TableColumn fx:id="columnAuthor" prefWidth="149.0" text="author" />
            </columns>
          </TableView>
       </children>

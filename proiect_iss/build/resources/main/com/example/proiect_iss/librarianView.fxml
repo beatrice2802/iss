@@ -2,38 +2,63 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="393.0" prefWidth="652.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proiect_iss.controllers.LibrarianController">
+<AnchorPane prefHeight="594.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proiect_iss.controllers.LibrarianController">
     <children>
-      <VBox prefHeight="393.0" prefWidth="652.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="60.0" layoutY="60.0" prefHeight="380.0" prefWidth="650.0" AnchorPane.bottomAnchor="231.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="20.0">
          <children>
               <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="609.0">
                   <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                              <Button mnemonicParsing="false" onAction="#handleAdd" prefHeight="25.0" prefWidth="90.0" text="Add book" />
-                              <Button mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="90.0" text="Delete book" />
-                              <Button mnemonicParsing="false" onAction="#handleReturn" prefHeight="25.0" prefWidth="90.0" text="Return book" />
-                     </children>
-                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
                       <HBox prefHeight="249.0" prefWidth="1.0" />
-                      <TableView layoutX="105.0" layoutY="23.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="486.0">
+                      <TableView fx:id="tableBooks" layoutX="105.0" layoutY="23.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="614.0">
                           <columns>
-                              <TableColumn fx:id="columnBookId" prefWidth="79.0" text="book id" />
-                              <TableColumn fx:id="columnTitle" prefWidth="250.0" text="title" />
-                              <TableColumn fx:id="columnStatus" prefWidth="155.0" text="status" />
+                              <TableColumn fx:id="columnBookId" prefWidth="58.39999008178711" text="book id" />
+                              <TableColumn fx:id="columnTitle" prefWidth="277.6000518798828" text="title" />
+                        <TableColumn fx:id="columnAuthor" prefWidth="176.79998779296875" text="author" />
+                              <TableColumn fx:id="columnStatus" minWidth="5.60003662109375" prefWidth="97.60003662109375" text="status" />
                           </columns>
                       </TableView>
                   </children>
               </HBox>
-              <Button mnemonicParsing="false" onAction="#handleLogOut" prefHeight="25.0" prefWidth="588.0" text="Log Out" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                        <Button mnemonicParsing="false" onAction="#handleAdd" prefHeight="26.0" prefWidth="206.0" text="Add book" />
+                        <Button mnemonicParsing="false" onAction="#handleDelete" prefHeight="26.0" prefWidth="205.0" text="Delete book" />
+                        <Button mnemonicParsing="false" onAction="#handleReturn" prefHeight="26.0" prefWidth="211.0" text="Return book" />
+               </children>
+            </HBox>
          </children>
       </VBox>
+      <HBox layoutX="20.0" layoutY="470.0" prefHeight="55.0" prefWidth="488.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="127.0" text="title:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textTitle" prefHeight="26.0" prefWidth="255.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="20.0" layoutY="415.0" prefHeight="55.0" prefWidth="488.0">
+         <children>
+            <Label prefHeight="29.0" prefWidth="120.0" text="author:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textAuthor" prefHeight="25.0" prefWidth="256.0" />
+         </children>
+      </HBox>
+        <Button layoutX="69.0" layoutY="525.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="25.0" prefWidth="588.0" text="Log Out" />
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

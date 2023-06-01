@@ -41,6 +41,7 @@ public class LoginController {
             stage.setTitle("CLIENT");
             stage.setScene(mainLayout);
             UserController userController = fxmlLoader.getController();
+            userController.initialize(this.srv);
             stage.show();
         }
         else {
@@ -53,6 +54,7 @@ public class LoginController {
             stage.setTitle("BIBLIOTECAR");
             stage.setScene(mainLayout);
             LibrarianController librarianController=fxmlLoader.getController();
+            librarianController.initialize(this.srv);
             stage.show();
         }
     }
